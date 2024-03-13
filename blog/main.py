@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-import model
+from .model import Base
 from database import SessionLocal, engine
 from Routers import blog,user,authentication
 
 
-model.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 app.include_router(blog.router)
