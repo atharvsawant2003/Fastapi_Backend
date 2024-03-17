@@ -1,7 +1,11 @@
 from fastapi import FastAPI
+<<<<<<< HEAD
 
 from model import Base
 
+=======
+from .model import Base
+>>>>>>> ec6ed39136285879e4603fd54d179383d474a7c5
 from database import SessionLocal, engine
 from Routers import blog, user, authentication
 
