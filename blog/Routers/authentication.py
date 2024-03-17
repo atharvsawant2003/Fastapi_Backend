@@ -2,7 +2,7 @@ from fastapi import APIRouter,Depends,HTTPException,status
 from sqlalchemy.orm import Session
 from Routers import blog,user
 from database import get_db
-import model, schemas,hashing
+import model, schemas,hashing,oauth2
 from datetime import timedelta
 from jwttoken import ACCESS_TOKEN_EXPIRE_MINUTES,create_access_token
 from fastapi.security import OAuth2PasswordRequestForm

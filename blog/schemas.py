@@ -4,22 +4,26 @@ from typing import List, Union
 class Blog(BaseModel):
     title: str
     body: str
+    
 
 
 class User(BaseModel):
     username: str
     email: str
     password: str
+ 
 
 class ShowUser1(BaseModel):
     username: str
     email: str
+  
     class Config():
         orm_mode = True
 
 class ShowUser(BaseModel):
     username: str
     email: str
+   
     blogs: List[Blog] = []
     class Config():
         orm_mode = True
@@ -39,4 +43,5 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    username: Union[str, None] = None        
+    username: Union[str, None] = None
+         

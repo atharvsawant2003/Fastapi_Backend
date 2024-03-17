@@ -4,6 +4,8 @@ from typing import List
 import model, schemas,hashing,oauth2
 from database import get_db
 
+
+
 router = APIRouter(tags=["Users"]) #prefix="/user"
 
 
@@ -41,4 +43,4 @@ async def delete_user(id, db: Session = Depends(get_db),get_current_user: schema
     return {"detail": "User Deleted"}
 
 
- 
+

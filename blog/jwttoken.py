@@ -25,6 +25,7 @@ def verify_token(token: str, credentials_exception: Union[HTTPException, None] =
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
+        
         token_data = schemas.TokenData(username=username)
     except JWTError:
         raise credentials_exception

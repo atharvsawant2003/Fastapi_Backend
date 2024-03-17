@@ -9,7 +9,9 @@ router = APIRouter(tags=["Blogs"])
 
 @router.post("/create_blog",status_code=status.HTTP_201_CREATED)#tags are used to group the api
 async def create_blog(request: schemas.Blog,db: Session = Depends(get_db),get_current_user: schemas.User = Depends(oauth2.get_current_user)):
-    new_blog = model.Blog(title=request.title, body=request.body, user_id=1)
+    username = get_current_user.username
+    user_id = db.query(model.User).filter(model.User.username == username).first().id
+    new_blog = model.Blog(title=request.title, body=request.body, user_id=user_id)
     db.add(new_blog)
     db.commit()
     db.refresh(new_blog)
